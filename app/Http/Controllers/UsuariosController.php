@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
 use Laracasts\Flash\Flash;
+use App\Http\Requests\UsuariosRequest;
 
 class UsuariosController extends Controller
 {
@@ -38,7 +39,7 @@ class UsuariosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UsuariosRequest $request)
     {
         $usuario = new User($request->all());
         $usuario->password = bcrypt($request->password);

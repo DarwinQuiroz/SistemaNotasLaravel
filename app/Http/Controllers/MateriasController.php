@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Materia;
 use App\Nivel;
+use App\Http\Requests\MateriaRequest;
 
 class MateriasController extends Controller
 {
@@ -42,7 +43,7 @@ class MateriasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MateriaRequest $request)
     {
         $materia = new Materia($request->all());
         $materia->save();

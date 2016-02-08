@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Profesor;
 use App\Facultad;
+use App\Http\Requests\ProfesorRequest;
 
 class ProfesoresController extends Controller
 {
@@ -42,7 +43,7 @@ class ProfesoresController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProfesorRequest $request)
     {
         $profesor = new Profesor($request->all());
         $profesor->save();

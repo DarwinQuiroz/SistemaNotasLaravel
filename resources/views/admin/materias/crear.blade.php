@@ -15,14 +15,24 @@
 								{!! Form::select('nivel_id', $niveles, null, ['class'=>'form-control select-nivel', 'required']) !!}
 							</div>
 
-							<div class="form-group">
-								{!! Form::label('descripcion', 'Descripcion') !!}
-								{!! Form::text('descripcion', null, ['class'=>'form-control','placeholder'=>'Nombre de la materia', 'required']) !!}
+							<div class="form-group{{ $errors->has('descripcion') ? ' has-error' : '' }}">
+								{!! Form::label('descripcion', 'Nombre Materia') !!}
+								{!! Form::text('descripcion', null, ['class'=>'form-control','placeholder'=>'Nombre de la materia', 'value'=> 'old(descripcion)']) !!}
+								@if ($errors->has('descripcion'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('descripcion') }}</strong>
+                                </span>
+                            @endif
 							</div>
 
-							<div class="form-group">
-								{!! Form::label('credito', 'Creditos') !!}
-								{!! Form::number('credito', null, ['class'=>'form-control','placeholder'=>'Número de créditos', 'required']) !!}
+							<div class="form-group{{ $errors->has('credito') ? ' has-error' : '' }}">
+								{!! Form::label('credito', 'Número de Creditos') !!}
+								{!! Form::number('credito', null, ['class'=>'form-control','placeholder'=>'Número de créditos', 'value'=> 'old(credito)']) !!}
+								@if ($errors->has('credito'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('credito') }}</strong>
+                                </span>
+                            @endif
 							</div>
 
 							<div class="form-group">

@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Alumno;
 use App\Facultad;
+use App\Http\Requests\AlumnoRequest;
 
 class AlumnosController extends Controller
 {
@@ -43,7 +44,7 @@ class AlumnosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AlumnoRequest $request)
     {
         $alumno = new Alumno($request->all());
         $alumno->save();

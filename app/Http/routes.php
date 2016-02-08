@@ -25,7 +25,17 @@ Route::get('/', function () {
 | kernel and includes session state, CSRF protection, and more.
 |
 */
-Route::group(['prefix' => 'admin'], function(){
+
+
+
+Route::group(['middleware' => ['web']], function () {
+    //
+});
+
+Route::group(['middleware' => 'web'], function () {
+    Route::auth();
+
+    Route::group(['prefix' => 'admin'], function(){
 	Route::resource('usuarios', 'UsuariosController');
 	Route::get('usuarios/{id}/destroy',
 		[
@@ -54,14 +64,6 @@ Route::group(['prefix' => 'admin'], function(){
 		'as' => 'admin.materias.destroy'
 		]);
 });
-
-
-Route::group(['middleware' => ['web']], function () {
-    //
-});
-
-Route::group(['middleware' => 'web'], function () {
-    Route::auth();
 
     Route::get('/home', 'HomeController@index');
 });
